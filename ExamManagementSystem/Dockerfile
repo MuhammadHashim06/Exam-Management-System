@@ -1,7 +1,10 @@
 # Use the official .NET SDK image to build the application
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
+
+# Make sure to copy from the correct relative path
 COPY ["ExamManagementSystem/ExamManagementSystem.csproj", "ExamManagementSystem/"]
+
 RUN dotnet restore "ExamManagementSystem/ExamManagementSystem.csproj"
 COPY . .
 WORKDIR "/src/ExamManagementSystem"
